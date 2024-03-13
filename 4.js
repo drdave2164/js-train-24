@@ -1,4 +1,4 @@
-console.log("Завдання: 4 ==============================");
+console.log('Завдання: 4 ==============================');
 
 // Функція task4, яка буде використовувати проміси
 function task4() {
@@ -21,6 +21,30 @@ function task4() {
   // Повідомлення про помилку від першого відхиленого проміса передається у функцію catch, виводимо в консоль помилку
   // Функція finally викликається незалежно від того, чи вирішено проміс, чи відхилено
   // Виводимо в консоль "Всі операції завершено"
+  function promise1() {
+    return new Promise(function executor(resolve, reject) {
+      setTimeout(() => {
+        resolve('Проміс 1 виконано');
+      }, 1000);
+    });
+  }
+
+  function promise2() {
+    return new Promise(function executor(resolve, reject) {
+      setTimeout(() => {
+        resolve('Проміс 2 виконано');
+      }, 1000);
+    });
+  }
+
+  Promise.all([promise1(), promise2()])
+    .then((result) => console.log(result))
+    .catch((error) => {
+      console.error('Сталася помилка:', error);
+    })
+    .finally(() => {
+      console.log('Всі операції завершено');
+    });
 }
 
 // Викликаємо функцію task4

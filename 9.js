@@ -1,4 +1,4 @@
-console.log("Завдання: 9 ==============================");
+console.log('Завдання: 9 ==============================');
 
 function task9() {
   // Створюємо функцію fetchWithError, яка симулює помилку при запиті до сервера.
@@ -7,6 +7,19 @@ function task9() {
   // Викликаємо функцію fetchWithError
   // Якщо проміс виконаний успішно виводимо в консоль дані які він повертає
   // Якщо проміс виконаний з помилкою виводимо в консоль помилку
+  function fetchWithError() {
+    const errorMessage = "Помилка при з'єднанні з сервером";
+
+    return Promise.resolve(errorMessage);
+  }
+
+  fetchWithError()
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.error(`Сталася помилка: ${error}`);
+    });
 }
 
 // Викликаємо функцію task10
